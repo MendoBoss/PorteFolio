@@ -1,11 +1,19 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PortfolioController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('portfolio.accueil');
+// });
+
+// Portfolio
+Route::get('/',[PortfolioController::class, 'accueil'])->name('portfolioAccueil');
+Route::get('/cv',[PortfolioController::class, 'cv'])->name('portfolioCv');
+Route::get('/contact',[PortfolioController::class, 'contact'])->name('portfolioContact');
+Route::get('/portfolio',[PortfolioController::class, 'portfolio'])->name('portfolioPortfolio');
+Route::get('/aPropos',[PortfolioController::class, 'aPropos'])->name('portfolioAPropos');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
